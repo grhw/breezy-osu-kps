@@ -9,6 +9,6 @@ I will release binaries if people for some reason want it.
 - [Open the key overlay for testing](https://127.0.0.1:6727/)
 - Add your keys in `config.json`
 - Add to OBS via Browser Source. Height should be 200px, width depends on how many keys you have. (4k is 450)
-- If you want a visualizer, put [the visualizer page](https://127.0.0.1:6727/) above the other browser source in OBS. Width is same as keys, Height is anything.
+- If have visualizer turned on in config, the height can be anything above 200px.
 
 # VISUALIZER IS WIP

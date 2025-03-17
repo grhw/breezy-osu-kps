@@ -6,16 +6,24 @@ function decodeHtml(html) {
     return txt.value;
 }
 
+const visualizerBars = []
+const visualizerBarOwnership = {}
 function createKey(keyName) {
     const lane = document.createElement("span")
     const key = document.createElement("span")
     const counter = document.createElement("span")
+    const visualizer = document.createElement("span")
+
+
+
     lane.classList.add("lane")
     key.classList.add("key")
     counter.classList.add("counter")
+    visualizer.classList.add("visualizer")
 
     lane.appendChild(key)
     lane.appendChild(counter)
+    lane.appendChild(visualizer)
 
     key.innerText = keyName
     counter.innerText = 0
@@ -23,12 +31,25 @@ function createKey(keyName) {
     document.querySelector(".key-container").appendChild(lane)
 
     return (down) => {
+        const bar = visualizerBarOwnership[keyName]
         if (!down&&lane.classList.contains("down")) {
             lane.classList.toggle("down",false)
+            if (bar) {
+                visualizerBars.push([Date.now(),bar])
+                visualizerBarOwnership[keyName] = null
+            }
         } else if (down&&!lane.classList.contains("down")) {
             lane.classList.toggle("down",true)
             counter.innerText = Number(counter.innerText) + 1
             pressHistory.push(Date.now())
+            
+            if (bar) {
+                bar.remove()
+            }
+            const newBar = document.createElement("span")
+            newBar.classList.add("visualizer-bar")
+            visualizer.appendChild(newBar)
+            visualizerBarOwnership[keyName] = newBar
         }
     }
 }
@@ -38,6 +59,7 @@ const hookedKeys = {}
 
 keybinds.forEach(key => {
     hookedKeys[key] = createKey(key)
+    visualizerBarOwnership[key] = null
 });
 /*
 document.addEventListener("keydown",(ev)=>{
@@ -77,6 +99,12 @@ function kpsCalculator() {
     if (kps > maxKps) {
         maxKps = kps
     }
+
+    visualizerBars.forEach(data => {
+        const time = data[0]
+        const element = data[1]
+        element.style.bottom = ((Date.now()-time)/4) + "px"
+    });
 
     requestAnimationFrame(kpsCalculator)
 }

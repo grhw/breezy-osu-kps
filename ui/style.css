@@ -8,12 +8,20 @@
     text-align: center;
 }
 
+html, body {
+    height: 100vh;
+    overflow: hidden;
+}
+
 .container {
     background-color: rgb(55, 54, 77);
     display: inline-block;
     padding: 15px;
     border-radius: 15px;
     box-shadow: 0px 5px 5px black;
+    top: calc(100% - 10px); /* for some reason bottom doesnt work */
+    transform: translateY(-100%);
+    position: relative;
 }
 
 .lane {
@@ -39,10 +47,10 @@
     transition-duration: 0ms;
     transform: translate(0px);
     box-shadow: none;
-    color: lightblue;
+    color: rgb(173, 216, 230);
 }
 .lane.down .counter {
-    color: lightblue;
+    color: rgb(173, 216, 230);
 }
 
 .counter {
@@ -51,4 +59,23 @@
     display: block;
     width: 100%;
     text-align: center;
+}
+
+.visualizer {
+    z-index: -1;
+    width: 80px;
+    height: calc(100vh - 200px);
+    bottom: calc(100% - 20px);
+    display: block;
+    position: absolute;
+}
+
+.visualizer-bar {
+    background-color: rgb(139, 182, 197);
+    width: 80px;
+    position: absolute;
+    border-radius: 10px;
+    min-height: 5px;
+    left: 0;
+    bottom: 0;
 }
