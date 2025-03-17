@@ -43,13 +43,15 @@ function createKey(keyName) {
             counter.innerText = Number(counter.innerText) + 1
             pressHistory.push(Date.now())
             
-            if (bar) {
-                bar[1].remove()
+            if (visualizer_enabled) {
+                if (bar) {
+                    bar[1].remove()
+                }
+                const newBar = document.createElement("span")
+                newBar.classList.add("visualizer-bar")
+                visualizer.appendChild(newBar)
+                visualizerBarOwnership[keyName] = [Date.now(),newBar]
             }
-            const newBar = document.createElement("span")
-            newBar.classList.add("visualizer-bar")
-            visualizer.appendChild(newBar)
-            visualizerBarOwnership[keyName] = [Date.now(),newBar]
         }
     }
 }

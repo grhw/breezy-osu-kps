@@ -1,5 +1,5 @@
 {
     "keys": "AX.'",
-    "visualizer": false,
+    "visualizer_enabled": true,
     "visualizer_speed": 30
 }
