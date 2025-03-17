@@ -35,7 +35,7 @@ function createKey(keyName) {
         if (!down&&lane.classList.contains("down")) {
             lane.classList.toggle("down",false)
             if (bar) {
-                visualizerBars.push([Date.now(),bar])
+                visualizerBars.push([Date.now(),bar[1]])
                 visualizerBarOwnership[keyName] = null
             }
         } else if (down&&!lane.classList.contains("down")) {
@@ -44,12 +44,12 @@ function createKey(keyName) {
             pressHistory.push(Date.now())
             
             if (bar) {
-                bar.remove()
+                bar[1].remove()
             }
             const newBar = document.createElement("span")
             newBar.classList.add("visualizer-bar")
             visualizer.appendChild(newBar)
-            visualizerBarOwnership[keyName] = newBar
+            visualizerBarOwnership[keyName] = [Date.now(),newBar]
         }
     }
 }
@@ -103,7 +103,18 @@ function kpsCalculator() {
     visualizerBars.forEach(data => {
         const time = data[0]
         const element = data[1]
-        element.style.bottom = ((Date.now()-time)/4) + "px"
+        if (element.style) {
+            element.style.bottom = (((Date.now()-time)/100))*visualizer_speed + "px"
+        }
+    });
+
+    keybinds.forEach(key => {
+        const owned = visualizerBarOwnership[key]
+        if (owned) {
+            const time = owned[0]
+            const element = owned[1]
+            element.style.height = (((Date.now()-time)/100)*visualizer_speed) + "px"
+        }
     });
 
     requestAnimationFrame(kpsCalculator)
