@@ -6,7 +6,7 @@ function decodeHtml(html) {
     return txt.value;
 }
 
-const visualizerBars = []
+var visualizerBars = []
 const visualizerBarOwnership = {}
 function createKey(keyName) {
     const lane = document.createElement("span")
@@ -88,11 +88,9 @@ function kpsCalculator() {
             remove += 1
         }
     })
-    pressHistory.reverse()
     for (let i = 0; i < remove; i++) {
-        pressHistory.pop()
+        pressHistory.shift()
     }
-    pressHistory.reverse()
     kps = Math.round(pressHistory.length/kpsSmoothingFactor)
     kpsLabel.innerText = kps + "kps / " + maxKps + " max"
 
@@ -104,7 +102,13 @@ function kpsCalculator() {
         const time = data[0]
         const element = data[1]
         if (element.style) {
-            element.style.bottom = (((Date.now()-time)/100))*visualizer_speed + "px"
+            const res = (((Date.now()-time)/100))*visualizer_speed
+            element.style.bottom = res + "px"
+
+            if (res > window.outerHeight) {
+                element.remove()
+                visualizerBars = visualizerBars.filter(f => f != data)
+            }
         }
     });
 
