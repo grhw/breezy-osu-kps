@@ -1,7 +1,11 @@
 import json
+import webbrowser
 from flask import Flask, render_template, send_from_directory
 from flask_socketio import SocketIO
 import pynput
+import logging
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 server = Flask(__name__,template_folder="ui")
 socket = SocketIO(server,cors_allowed_origins="*")
@@ -61,4 +65,8 @@ listener = pynput.keyboard.Listener(
     on_release=on_release)
 listener.start()
 
-socket.run(server,port=6727)
+print("OBS Browser Source at https://127.0.0.1:6727")
+print("Config at https://127.0.0.1:6727/options/")
+
+webbrowser.open_new_tab("http://127.0.0.1:6727")
+socket.run(server,port=6727,host="127.0.0.1")
