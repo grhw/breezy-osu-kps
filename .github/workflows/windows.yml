@@ -21,9 +21,9 @@ jobs:
     - uses: canastro/copy-action@0.0.2
       with:
         source: default_config.json
-        target: src/dist/main/config.json
+        target: dist/main/config.json
 
     - uses: actions/upload-artifact@v4
       with:
         name: windows
-        path: src/dist/main
+        path: dist/main
