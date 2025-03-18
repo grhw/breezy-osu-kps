@@ -1,1 +1,0 @@
-pyinstaller --noconfirm --onedir --icon "src/internal/icon.ico" --add-data "src/internal:." "src/main.py"

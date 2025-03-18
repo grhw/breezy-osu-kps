@@ -1,0 +1,1 @@
+pyinstaller --noconfirm --onedir --icon "src/_internal/icon.ico" --add-data "src/_internal:." "src/main.py" && cp default_config.json dist/main/config.json
