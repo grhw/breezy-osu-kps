@@ -1,4 +1,9 @@
-# BKPS
+<p align="center">
+</br><img src="icon.png" style="width:200px;">
+</p>
+
+
+# Breezy KPS (BKPS)
 Because all the other ones seem to not support Linux properly.
 
 I will release binaries if people for some reason want it.
@@ -11,5 +16,3 @@ I will release binaries if people for some reason want it.
     - Copy the URL, and paste it in OBS.
     - Width depends on how many keys you have. (4k is 450)
     - If have visualizer turned on in config, the height can be anything above 200px. Otherwise, set it to 200px only.
-
-# OPTIONS IS WIP
