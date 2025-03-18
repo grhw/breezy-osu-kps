@@ -4,7 +4,7 @@ Because all the other ones seem to not support Linux properly.
 I will release binaries if people for some reason want it.
 
 # How to use
-- Get the [latest release](releases/latest/), download the version for your OS
+- Get the [latest release](https://github.com/grhw/breezy-osu-kps/releases/latest), download the version for your OS
 - [Open the key overlay dashboard](https://127.0.0.1:6727/)
 - Add to OBS via Browser Source.
     - Click `Go to Browser Overlay` in the dashboard
