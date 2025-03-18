@@ -3,7 +3,7 @@
 
 a = Analysis(
     ['src/main.py'],
-    datas=[('src/_internal', '.')],
+    datas=[('src/_internal', 'src/_internal')],
     noarchive=False,
 )
 pyz = PYZ(a.pure)

@@ -13,21 +13,21 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Package Application for Windows
-      uses: JackMcKew/pyinstaller-action-windows@main
-      with:
-        path: .
-    
     - name: Package Application for Linux
       uses: JackMcKew/pyinstaller-action-linux@main
       with:
         path: .
 
-    - name: Copy default config on windows build
-      run: cp default_config.json dist/windows/BreezyKPS/config.json
+    - name: Package Application for Windows
+      uses: JackMcKew/pyinstaller-action-windows@main
+      with:
+        path: .
 
     - name: Copy default config on linux build
       run: cp default_config.json dist/linux/BreezyKPS/config.json
+
+    - name: Copy default config on windows build
+      run: cp default_config.json dist/windows/BreezyKPS/config.json
 
     - uses: actions/upload-artifact@v4
       with:
