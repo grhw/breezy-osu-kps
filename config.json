@@ -1,9 +1,16 @@
 {
     "$tip": "https://127.0.0.1:6727/options/",
 
-    "keys": "AX.'",
-    "visualizer_enabled": true,
-    "visualizer_speed": 30,
+    "key_overlay": {
+        "keys": "AX.'",
+        "visualizer_enabled": true,
+        "visualizer_speed": 30
+    },
+
+    "font": {
+        "custom_font_enabled": false,
+        "font_name": "Ubuntu Mono"
+    },
 
     "colors": {
         "text_color": "#ffffff",

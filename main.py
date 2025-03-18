@@ -19,9 +19,9 @@ def send_ui():
     for i in config["keys"]:
         pressed_keys[i.upper()] = False
     return render_template("index.html",
-                        v="y" if config["visualizer_enabled"] else "",
-                        vs=config["visualizer_speed"],
-                        k=config["keys"].upper(),
+                        v="y" if config["key_overlay"]["visualizer_enabled"] else "",
+                        vs=config["key_overlay"]["visualizer_speed"],
+                        k=config["key_overlay"]["keys"].upper(),
                         
                         text_color=config["colors"]["text_color"],
                         active_text_color=config["colors"]["active_text_color"],
