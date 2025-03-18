@@ -19,7 +19,7 @@ jobs:
         path: .
     
     - name: Package Application for Linux
-      uses: JackMcKew/pyinstaller-action-linux@main
+      uses: JackMcKew/pyinstaller-action-linux@3.10
       with:
         path: .
 
