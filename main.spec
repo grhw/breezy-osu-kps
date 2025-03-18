@@ -3,14 +3,7 @@
 
 a = Analysis(
     ['src/main.py'],
-    pathex=[],
-    binaries=[],
     datas=[('src/_internal', '.')],
-    hiddenimports=[],
-    hookspath=[],
-    hooksconfig={},
-    runtime_hooks=[],
-    excludes=[],
     noarchive=False,
 )
 pyz = PYZ(a.pure)
