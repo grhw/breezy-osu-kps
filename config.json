@@ -5,10 +5,6 @@
         "visualizer_enabled": true,
         "visualizer_speed": 30
     },
-    "font": {
-        "custom_font_enabled": false,
-        "font_name": "Ubuntu Mono"
-    },
     "colors": {
         "text_color": "#ffffff",
         "active_text_color": "#add8e6",
