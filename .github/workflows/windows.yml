@@ -18,8 +18,8 @@ jobs:
       with:
         path: .
 
-    - name: can you tell me where we are?!
-      run: ls
+    - name: i literally see you in there
+      run: ls dist
 
     - name: Copy default config
       run: cp default_config.json dist/main/config.json
