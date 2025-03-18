@@ -14,7 +14,7 @@ def send_ui():
         config = json.loads(f.read())
     for i in config["keys"]:
         pressed_keys[i.upper()] = False
-    return render_template("index.html",v=str(config["visualizer_enabled"]).lower(),vs=config["visualizer_speed"],k=config["keys"].upper())
+    return render_template("index.html",v="y" if config["visualizer_enabled"] else "",vs=config["visualizer_speed"],k=config["keys"].upper())
 
 @server.route("/assets/<file>")
 def assets(file):
