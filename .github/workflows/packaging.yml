@@ -20,7 +20,7 @@ jobs:
         pyinstaller_ver: '==6.12.0'
         spec: 'linux.spec'
         requirements: 'requirements.txt'
-        upload_exe_with_name: 'BreezyKPS-Linux-Artifact'
+        executable_path: 'dist/linux/'
         options:
         spec_options: # any custom arguments you want like: `--debug`
 
