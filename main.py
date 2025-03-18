@@ -15,6 +15,7 @@ pressed_keys = {}
 
 @server.route("/overlay/")
 def send_overlay():
+    global pressed_keys
     pressed_keys = {}
     with open("config.json","r") as f:
         config = json.loads(f.read())

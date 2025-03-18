@@ -90,7 +90,7 @@ function createTextValue(category, label, text, updFunc) {
     entry.append(labelSpan, valueSpan);
     container.appendChild(entry);
 
-    input.addEventListener("changed",()=>{
+    input.addEventListener("keyup",()=>{
         updFunc(input.value)
     })
 

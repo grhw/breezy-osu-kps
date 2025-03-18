@@ -24,7 +24,11 @@ Object.keys(settings).forEach((name)=>{
                 const value = settings[name][setting]
 
                 const updFunc = (v)=>{
-                    settings[name][setting] = v
+                    if (setting == "keys") {
+                        settings[name][setting] = v.toUpperCase()
+                    } else {
+                        settings[name][setting] = v
+                    }
                 }
 
                 switch (typeof(value)) {
