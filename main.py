@@ -14,7 +14,18 @@ def send_ui():
         config = json.loads(f.read())
     for i in config["keys"]:
         pressed_keys[i.upper()] = False
-    return render_template("index.html",v="y" if config["visualizer_enabled"] else "",vs=config["visualizer_speed"],k=config["keys"].upper())
+    return render_template("index.html",
+                        v="y" if config["visualizer_enabled"] else "",
+                        vs=config["visualizer_speed"],
+                        k=config["keys"].upper(),
+                        
+                        text_color=config["colors"]["text_color"],
+                        active_text_color=config["colors"]["active_text_color"],
+                        background_color=config["colors"]["background_color"],
+                        key_background_color=config["colors"]["key_background_color"],
+                        key_shadow_color=config["colors"]["key_shadow_color"],
+                        visualizer_color=config["colors"]["visualizer_color"]
+                        )
 
 @server.route("/assets/<file>")
 def assets(file):

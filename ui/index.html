@@ -13,6 +13,16 @@
         visualizer_enabled = Boolean("{{v}}")
         visualizer_speed = Number("{{vs}}")
     </script>
+    <style>
+        :root {
+            --text-color: {{text_color}};
+            --active-text-color: {{active_text_color}};
+            --background-color: {{background_color}};
+            --key-background-color: {{key_background_color}};
+            --key-shadow-color: {{key_shadow_color}};
+            --visualizer-color: {{visualizer_color}};
+        }
+    </style>
     <script src="/assets/handler.js" defer></script>
     <div class="container">
         <div class="key-container"></div>

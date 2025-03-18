@@ -1,5 +1,18 @@
 {
+    "$tip": "https://127.0.0.1:6727/options/",
+
     "keys": "AX.'",
     "visualizer_enabled": true,
-    "visualizer_speed": 30
+    "visualizer_speed": 30,
+
+    "colors": {
+        "text_color": "#ffffff",
+        "active_text_color": "#add8e6",
+
+        "background_color": "#37364d",
+        "key_background_color": "#302f3b",
+        "key_shadow_color": "#222635",
+        
+        "visualizer_color": "#8bb6c5"
+    }
 }

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
 :root {
-    color: white;
+    color: var(--text-color);
     font-family: "Comfortaa", sans-serif;
     font-weight: 700;
     font-size: 60px;
@@ -14,7 +14,7 @@ html, body {
 }
 
 .container {
-    background-color: rgb(55, 54, 77);
+    background-color: var(--background-color);
     display: inline-block;
     padding: 15px;
     border-radius: 15px;
@@ -30,7 +30,7 @@ html, body {
 }
 
 .key {
-    background-color: rgb(48, 47, 59);
+    background-color: var(--key-background-color);
     padding: 10px;
     border-radius: 7px;
     display: inline-block;
@@ -39,7 +39,7 @@ html, body {
     text-align: center;
 
     transform: translateY(-9px);
-    box-shadow: 0px 9px 0px rgb(34, 38, 53);
+    box-shadow: 0px 9px 0px var(--key-shadow-color);
     transition: all 100ms;
 }
 
@@ -47,10 +47,10 @@ html, body {
     transition-duration: 0ms;
     transform: translate(0px);
     box-shadow: none;
-    color: rgb(173, 216, 230);
+    color: var(--active-text-color);
 }
 .lane.down .counter {
-    color: rgb(173, 216, 230);
+    color: var(--active-text-color);
 }
 
 .counter {
@@ -73,7 +73,7 @@ html, body {
 }
 
 .visualizer-bar {
-    background-color: rgb(139, 182, 197);
+    background-color: var(--visualizer-color);
     width: 80px;
     position: absolute;
     border-radius: 10px;
