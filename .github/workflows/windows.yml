@@ -18,13 +18,10 @@ jobs:
       with:
         path: .
 
-    - name: i literally see you in there
-      run: ls dist
-
     - name: Copy default config
-      run: cp default_config.json dist/main/config.json
+      run: cp default_config.json dist/windows/config.json
 
     - uses: actions/upload-artifact@v4
       with:
         name: windows
-        path: dist/main
+        path: dist/windows
