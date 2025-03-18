@@ -18,10 +18,11 @@ jobs:
       with:
         path: .
 
-    - uses: canastro/copy-action@0.0.2
-      with:
-        source: default_config.json
-        target: dist/main/config.json
+    - name: can you tell me where we are?!
+      run: ls
+
+    - name: Copy default config
+      run: cp default_config.json dist/main/config.json
 
     - uses: actions/upload-artifact@v4
       with:
