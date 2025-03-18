@@ -10,7 +10,7 @@ import os
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
-server = Flask(__name__,template_folder="_internal/ui")
+server = Flask(__name__,template_folder="internal/ui")
 socket = SocketIO(server,cors_allowed_origins="*")
 
 pressed_keys = {}
@@ -51,11 +51,11 @@ def update_settings():
 
 @server.route("/scripts/<file>")
 def send_script(file):
-    return send_from_directory("_internal/scripts/",file)
+    return send_from_directory("internal/scripts/",file)
 
 @server.route("/styles/<file>")
 def send_style(file):
-    return send_from_directory("_internal/styles/",file)
+    return send_from_directory("internal/styles/",file)
 
 def update():
     socket.emit("keys",{
