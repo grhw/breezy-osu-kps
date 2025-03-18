@@ -76,8 +76,10 @@ html, body {
     background-color: var(--visualizer-color);
     width: 80px;
     position: absolute;
+    display: block;
     border-radius: 10px;
     min-height: 5px;
     left: 0;
     bottom: 0;
+    transition: bottom 20ms;
 }

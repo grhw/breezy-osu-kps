@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+:root, input, button {
+    color: white;
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+}
+
+html {
+    background-color: #302f3b !important;
+}
+
+.container {
+    padding: 50px;
+    padding-top: 25px;
+    width: 50vw;
+    min-width: 40vw;
+    display: inline-block;
+    background-color: #37364d;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.entry {
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 50px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.entry .label {
+    width: 60%;
+    display: inline-block;
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.entry .value {
+    width: 30%;
+    display: inline-block;
+    font-size: 30px;
+    position: relative;
+}
+.entry .value span {
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+
+.entry.config_color .value, .entry.config_text .value input {
+    padding: 6px;
+    border-radius: 5px;
+    background-color: #5d5b6e;
+    height: max-content;
+    border: none;
+    height: 30px;
+}
+.entry.config_color .value span {
+    left: 6px;
+    text-shadow: 1px 1px 0px black;
+}
+
+.entry.config_text .value input {
+    width: 100%;
+    text-align: left;
+}
+
+.entry.config_color .value input, .entry.config_checkbox .value input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    z-index: 2;
+}
+.entry.config_checkbox .value input {
+    height: 30px;
+    transform: translateY(-50%);
+    width: calc(100% + 30px);
+}
+
+.entry.config_checkbox {
+    margin-bottom: 30px;
+}
+
+.entry.config_checkbox .value .checkbox {
+    width: 30px;
+    height: 30px;
+    outline: none;
+    border-radius: 5px;
+    left: 0;
+    background-color: #5d5b6e;
+    border: solid 6px #5d5b6e;
+}
+
+.entry.config_checkbox .value .checkbox .inner {
+    transform: scale(0%);
+    transition: transform 0.1s;
+    
+    background-color: #adb3e6;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: inherit;
+}
+
+.entry.config_checkbox .value:has(input:checked) .checkbox .inner {
+    transform: scale(100%);
+}
+
+.config {
+    padding-top: 25px;
+}
+
+button {
+    background-color: #515063;
+    border-radius: 15px;
+    border: none;
+    padding: 20px;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    box-shadow: 0px 6px 0px #17161d;
+    transition: all 100ms;
+}
+
+button:hover {
+    box-shadow: 0px 8px 0px #17161d;
+    transform: translateY(-2px);
+}
+
+button:active {
+    box-shadow: 0px 0px 0px #17161d;
+    transform: translateY(6px);
+}

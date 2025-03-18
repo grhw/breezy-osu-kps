@@ -100,6 +100,16 @@ function kpsCalculator() {
         maxKps = kps
     }
 
+    keybinds.forEach(key => {
+        const owned = visualizerBarOwnership[key]
+        if (owned) {
+            const time = owned[0]
+            const element = owned[1]
+            element.style.height = (((Date.now()-time)/100)*visualizer_speed) + "px"
+            element.style.bottom = "0px"
+        }
+    });
+
     visualizerBars.forEach(data => {
         const time = data[0]
         const element = data[1]
@@ -111,15 +121,6 @@ function kpsCalculator() {
                 element.remove()
                 visualizerBars = visualizerBars.filter(f => f != data)
             }
-        }
-    });
-
-    keybinds.forEach(key => {
-        const owned = visualizerBarOwnership[key]
-        if (owned) {
-            const time = owned[0]
-            const element = owned[1]
-            element.style.height = (((Date.now()-time)/100)*visualizer_speed) + "px"
         }
     });
 

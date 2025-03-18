@@ -11,4 +11,4 @@ I will release binaries if people for some reason want it.
 - Add to OBS via Browser Source. Height should be 200px, width depends on how many keys you have. (4k is 450)
 - If have visualizer turned on in config, the height can be anything above 200px.
 
-# VISUALIZER IS WIP
+# OPTIONS IS WIP

@@ -1,6 +1,7 @@
 import json
 import webbrowser
 from flask import Flask, render_template, send_from_directory
+import flask
 from flask_socketio import SocketIO
 import pynput
 import logging
@@ -12,13 +13,14 @@ socket = SocketIO(server,cors_allowed_origins="*")
 
 pressed_keys = {}
 
-@server.route("/")
-def send_ui():
+@server.route("/overlay/")
+def send_overlay():
+    pressed_keys = {}
     with open("config.json","r") as f:
         config = json.loads(f.read())
-    for i in config["keys"]:
+    for i in config["key_overlay"]["keys"]:
         pressed_keys[i.upper()] = False
-    return render_template("index.html",
+    return render_template("overlay.html",
                         v="y" if config["key_overlay"]["visualizer_enabled"] else "",
                         vs=config["key_overlay"]["visualizer_speed"],
                         k=config["key_overlay"]["keys"].upper(),
@@ -31,9 +33,26 @@ def send_ui():
                         visualizer_color=config["colors"]["visualizer_color"]
                         )
 
-@server.route("/assets/<file>")
-def assets(file):
-    return send_from_directory("ui/",file)
+@server.route("/")
+def send_options():
+    with open("config.json","r") as f:
+        config = json.loads(f.read())
+    return render_template("options.html",config=json.dumps(config))
+
+@server.post("/update_settings/")
+def update_settings():
+    with open("config.json","w+") as f:
+        f.write(json.dumps(json.loads(flask.request.get_data(as_text=True)),indent=4))
+    
+    return "ok"
+
+@server.route("/scripts/<file>")
+def send_script(file):
+    return send_from_directory("scripts/",file)
+
+@server.route("/styles/<file>")
+def send_style(file):
+    return send_from_directory("styles/",file)
 
 def update():
     socket.emit("keys",{
