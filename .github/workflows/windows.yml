@@ -19,9 +19,9 @@ jobs:
         path: .
 
     - name: Copy default config
-      run: cp default_config.json dist/windows/config.json
+      run: cp default_config.json dist/windows/BreezyKPS/config.json
 
     - uses: actions/upload-artifact@v4
       with:
-        name: windows
+        name: Windows-Artifact
         path: dist/windows
