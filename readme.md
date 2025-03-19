@@ -6,13 +6,14 @@
 # Breezy KPS (BKPS)
 Because all the other ones seem to not support Linux properly.
 
-I will release binaries if people for some reason want it.
+I give up trying to make binaries for this. If you check the commits I've been trying my absolute best on this, I cannot figure out how to do it. I tried using golang but I can't. This will stay as python for now.
 
-# How to use
-- Get the [latest release](https://github.com/grhw/breezy-osu-kps/releases/latest), download the version for your OS
-- [Open the key overlay dashboard](https://127.0.0.1:6727/)
-- Add to OBS via Browser Source.
-    - Click `Go to Browser Overlay` in the dashboard
-    - Copy the URL, and paste it in OBS.
-    - Width depends on how many keys you have. (4k is 450)
-    - If have visualizer turned on in config, the height can be anything above 200px. Otherwise, set it to 200px only.
+# How to run
+- Install python 3.12.1 (or any version you think will work)
+- Download the source code zip from [releases](https://github.com/grhw/breezy-osu-kps)
+- Unzip it anywhere
+- Open terminal 
+- `cd breezy-osu-kps` (or wherever the folder is)
+- `python3 -m pip -r requirements.txt`
+- Copy `default_config.json` to `src/`
+- `python3 src/main.py`
